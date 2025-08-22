@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografika Konfiguracji Studia Audio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .flow-line {
+            position: relative;
+            border-color: #4196E0;
+        }
+        .flow-line::after {
+            content: '▶';
+            position: absolute;
+            color: #0075D4;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .flow-line-right::after {
+            right: -1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .flow-line-down::after {
+            bottom: -1.25rem;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+        }
+        .flow-line-left::after {
+            left: -1.25rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+        }
+        .flow-line-up::after {
+            top: -1.25rem;
+            left: 50%;
+            transform: translateX(-50%) rotate(-90deg);
+        }
+        .flow-box {
+            border-color: #005CB9;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        .flow-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .flow-label {
+            background-color: #0075D4;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+    <!-- Palette: Brilliant Blues (#00449E, #005CB9, #0075D4, #4196E0, #8AC2EC) -->
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#00449E] mb-2">Przewodnik Konfiguracji Studia</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">Wizualny poradnik krok po kroku, jak poprawnie połączyć Twój sprzęt, aby uzyskać profesjonalną jakość dźwięku i pełną funkcjonalność.</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="gear-overview">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Twoje Centrum Dowodzenia: Przegląd Sprzętu</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center flex flex-col items-center justify-center">
+                        <span class="text-6xl mb-4">🎹</span>
+                        <h3 class="text-xl font-bold mb-2">Arturia AstroLab</h3>
+                        <p class="text-slate-600">Główne źródło dźwięku i kontroler MIDI.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center flex flex-col items-center justify-center">
+                        <span class="text-6xl mb-4">🎛️</span>
+                        <h3 class="text-xl font-bold mb-2">Tascam Model 12</h3>
+                        <p class="text-slate-600">Serce studia: mikser, interfejs i kontroler DAW.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center flex flex-col items-center justify-center">
+                        <span class="text-6xl mb-4">🌌</span>
+                        <h3 class="text-xl font-bold mb-2">Strymon Big Sky MX</h3>
+                        <p class="text-slate-600">Procesor efektów dla przestrzennych pogłosów.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center flex flex-col items-center justify-center">
+                        <span class="text-6xl mb-4">💻</span>
+                        <h3 class="text-xl font-bold mb-2">Laptop z Reaper</h3>
+                        <p class="text-slate-600">Cyfrowa stacja robocza (DAW) do nagrywania i miksu.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="signal-flow">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Klucz do sukcesu: Prawidłowy Przepływ Sygnału</h2>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <p class="text-center text-slate-600 mb-8">Cały system działa w oparciu o dwie równoległe ścieżki: analogową (dźwięk) i cyfrową (dane). Mikser Tascam jest centralnym punktem, który łączy oba światy.</p>
+                    <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8">
+                        
+                        <div class="w-full lg:w-2/3">
+                            <h3 class="text-xl font-bold text-center mb-4 text-[#0075D4]">Ścieżka Audio (Analogowa)</h3>
+                            <div class="flex flex-col items-center space-y-4">
+                                <div class="flow-box border-2 rounded-lg p-4 w-72 text-center">
+                                    <h4 class="font-bold">1. Arturia AstroLab</h4>
+                                    <p class="text-sm text-slate-500">Wyjścia L/R (Stereo)</p>
+                                </div>
+                                <div class="text-3xl text-[#0075D4]">⬇️</div>
+                                <div class="flow-box border-2 rounded-lg p-4 w-72 text-center">
+                                    <h4 class="font-bold">2. Tascam Model 12</h4>
+                                    <p class="text-sm text-slate-500">Wejścia Liniowe 9/10 (Sygnał "Dry")</p>
+                                </div>
+                                <div class="text-3xl text-[#0075D4]">⬇️</div>
+                                <div class="flow-box border-2 border-dashed border-[#0075D4] rounded-lg p-4 w-72 text-center bg-blue-50">
+                                    <h4 class="font-bold">3. Pętla Efektów (Aux Send/Return)</h4>
+                                    <p class="text-sm text-slate-500 mt-2">Tascam (Aux 1 Send) → Strymon → Tascam (Wejścia 7/8)</p>
+                                    <p class="text-xs text-slate-500 mt-1">(Sygnał "Wet")</p>
+                                </div>
+                                <div class="text-3xl text-[#0075D4]">⬇️</div>
+                                <div class="flow-box border-2 rounded-lg p-4 w-72 text-center">
+                                    <h4 class="font-bold">4. Tascam Model 12</h4>
+                                    <p class="text-sm text-slate-500">Suma sygnałów na szynie Main</p>
+                                </div>
+                                <div class="text-3xl text-[#0075D4]">⬇️</div>
+                                <div class="flow-box border-2 rounded-lg p-4 w-72 text-center">
+                                    <h4 class="font-bold">5. Głośnik JBL</h4>
+                                    <p class="text-sm text-slate-500">Odsłuch Mono (Wyjście Główne L)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/3 mt-8 lg:mt-0">
+                             <h3 class="text-xl font-bold text-center mb-4 text-[#0075D4]">Ścieżka Danych (Cyfrowa)</h3>
+                             <div class="flex flex-col items-center gap-y-8">
+                                <div class="flow-box border-2 rounded-lg p-4 w-64 text-center">
+                                    <h4 class="font-bold">Laptop z Reaper</h4>
+                                </div>
+                                <div class="w-px h-8 bg-[#4196E0] relative">
+                                    <div class="absolute top-0 left-1/2 w-8 h-px bg-[#4196E0] -translate-x-1/2"></div>
+                                    <div class="absolute bottom-0 left-1/2 w-8 h-px bg-[#4196E0] -translate-x-1/2"></div>
+                                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-2xl text-[#0075D4]">↔</span>
+                                </div>
+                                <div class="flow-box border-2 rounded-lg p-4 w-64 text-center">
+                                    <h4 class="font-bold">Tascam Model 12</h4>
+                                    <p class="text-sm text-slate-500">Audio & DAW Control</p>
+                                </div>
+                                <div class="w-px h-8 bg-[#4196E0] relative">
+                                    <div class="absolute top-0 left-1/2 w-8 h-px bg-[#4196E0] -translate-x-1/2"></div>
+                                    <div class="absolute bottom-0 left-1/2 w-8 h-px bg-[#4196E0] -translate-x-1/2"></div>
+                                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-2xl text-[#0075D4]">↔</span>
+                                </div>
+                                <div class="flow-box border-2 rounded-lg p-4 w-64 text-center">
+                                    <h4 class="font-bold">Arturia AstroLab</h4>
+                                    <p class="text-sm text-slate-500">MIDI Control</p>
+                                </div>
+                                <p class="text-center text-slate-600 mt-4 p-4 border-2 border-dashed border-slate-300 rounded-lg">Wszystkie połączenia cyfrowe realizowane są za pomocą standardowych kabli USB.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="cables">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Niezbędnik: Poprawna Lista Kabli</h2>
+                <div class="bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">2x Jack 6.3 mm TRS</h4>
+                            <p class="text-sm text-slate-500">AstroLab ➔ Tascam (Stereo)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">1x Jack 6.3 mm TS</h4>
+                            <p class="text-sm text-slate-500">Tascam (Aux Send) ➔ Strymon</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">2x Jack 6.3 mm TS</h4>
+                            <p class="text-sm text-slate-500">Strymon ➔ Tascam (Aux Return)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">1x XLR - XLR</h4>
+                            <p class="text-sm text-slate-500">Tascam ➔ Głośnik JBL</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">1x USB-C do USB-A</h4>
+                            <p class="text-sm text-slate-500">Tascam ➔ Laptop</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-slate-50 rounded-md">
+                        <span class="text-3xl text-[#0075D4]">✅</span>
+                        <div>
+                            <h4 class="font-bold">1x USB-C do USB-A</h4>
+                            <p class="text-sm text-slate-500">AstroLab ➔ Laptop</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="warning">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Krytyczne Ostrzeżenie</h2>
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-6 rounded-lg shadow-md flex items-center gap-6">
+                    <div class="text-6xl">❌</div>
+                    <div>
+                        <h3 class="text-2xl font-black">NIGDY nie sumuj sygnału stereo do mono za pomocą kabla "Y"!</h3>
+                        <p class="mt-2">Używanie prostego kabla rozdzielającego (np. 2x Jack na 1x Jack) do łączenia dwóch wyjść w jedno wejście jest niebezpieczne. Może to prowadzić do poważnych zniekształceń dźwięku, problemów fazowych, a w skrajnych przypadkach nawet do trwałego uszkodzenia sprzętu. Prawidłowe sumowanie sygnału odbywa się wewnątrz miksera.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tascam-modes">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Dwa Tryby Pracy Miksera Tascam w Reaper</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-3 text-center text-[#0075D4]">Tryb Interfejsu Audio</h3>
+                        <p class="text-slate-600 mb-4">Standardowy tryb do nagrywania. Reaper "widzi" wszystkie fizyczne wejścia miksera.</p>
+                        <div class="text-center bg-[#8AC2EC] text-[#00449E] p-4 rounded-lg">
+                            <div class="text-5xl font-black">12</div>
+                            <div class="font-semibold">kanałów wejściowych</div>
+                        </div>
+                        <p class="text-center mt-4 font-semibold">Idealny do: <span class="font-normal">Nagrywania wielośladowego.</span></p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-3 text-center text-[#0075D4]">Tryb Kontrolera DAW</h3>
+                        <p class="text-slate-600 mb-4">Suwaki i przyciski miksera sterują programem Reaper, ale funkcje audio są ograniczone.</p>
+                        <div class="text-center bg-[#8AC2EC] text-[#00449E] p-4 rounded-lg">
+                            <div class="text-5xl font-black">2</div>
+                            <div class="font-semibold">kanały wejściowe</div>
+                        </div>
+                        <p class="text-center mt-4 font-semibold">Idealny do: <span class="font-normal">Miksowania i edycji nagranych śladów.</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pro-tips">
+                <h2 class="text-3xl font-bold text-center mb-8 text-[#005CB9]">Dobre Praktyki i Wskazówki</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <span class="text-5xl mb-3">📶</span>
+                        <h3 class="text-lg font-bold">Gain Staging</h3>
+                        <p class="text-sm text-slate-600">Zawsze ustawiaj prawidłowy poziom wejściowy pokrętłem GAIN, aby uniknąć przesterowania sygnału (clippingu).</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <span class="text-5xl mb-3">🔌</span>
+                        <h3 class="text-lg font-bold">Kolejność Włączania</h3>
+                        <p class="text-sm text-slate-600">1. Sprzęt (AstroLab) → 2. Mikser → 3. Głośnik. Wyłączaj w odwrotnej kolejności, aby chronić głośniki.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <span class="text-5xl mb-3">💧</span>
+                        <h3 class="text-lg font-bold">100% Wet na Efekcie</h3>
+                        <p class="text-sm text-slate-600">W pętli efektów (Aux) ustaw pokrętło MIX na Strymonie na 100% "wet", aby mikser kontrolował proporcje sygnału.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-300">
+            <p class="text-slate-500">Infografika wygenerowana w celu uproszczenia konfiguracji studia domowego.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
